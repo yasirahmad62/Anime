@@ -42,7 +42,6 @@ export const fetchAsyncMoviesBySearch = createAsyncThunk(
 );
 
 const fetchNewMovies = async (page) => {
-  const movieText = "Harry";
   const response = await movieApi.get(
     `/v3/search/anime?q=<query>&limit=16&page=${page}`
   );

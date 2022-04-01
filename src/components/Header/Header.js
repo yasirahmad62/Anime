@@ -49,7 +49,7 @@ const Header = () => {
       </div>
       <div className="para-div">
         <p className="paragraph">
-          https://api.jikan.moe/v3/search/anime?q={searchText}
+          <span className='para-span'>Requesting: </span>https://api.jikan.moe/v3/search/anime?q={searchText}
         </p>
       </div>
     </div>

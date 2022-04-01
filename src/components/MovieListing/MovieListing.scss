@@ -1,12 +1,12 @@
 @import "../../common/colors.scss";
 
 .movie-list{
-  margin: 120px 0px;
+  margin: 160px 0px;
   h2 {
     color: $font-secondary;
     margin-bottom: 10px;
     font-weight: 400;
-    font-size: 2px;
+    font-size: 20px;
   }
 }
 
@@ -19,17 +19,17 @@
 .movie-wrapper{
   margin-top: 120px;
 }
-button {
+
+button {  
   background: none;
   border: 2px solid;
   font: inherit;
   line-height: 1;
   margin: 0.5em;
+  margin-bottom: 100px;
   position: relative;
   left: 44%;
   padding: 1em 2em;
-}
-button {  
   color: #3898ec;
   transition: 0.25s;
   

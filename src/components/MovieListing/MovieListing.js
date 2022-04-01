@@ -48,7 +48,7 @@ const MovieListing = () => {
   return (
     <div className="movie-wrapper">
       <div className="movie-list">
-        <h2>Movies</h2>
+        <h2>Animes</h2>
         <div className="movie-container">{renderMovies}</div>
       </div>
       <button onClick={loadMore} className="load-but">
