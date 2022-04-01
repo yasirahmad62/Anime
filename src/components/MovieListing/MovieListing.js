@@ -27,9 +27,6 @@ const MovieListing = () => {
   // const dispatch = useDispatch();
 
   const loadMore = () => {
-    console.log(page_number);
-    console.log("xxx");
-    console.log("Loading more!");
     dispatch(incrementPageNumber());
     dispatch(
       fetchAsyncMovies({
@@ -39,7 +36,7 @@ const MovieListing = () => {
     );
   };
 
-  let renderMovies,
+  let renderMovies;
 
   renderMovies = movies ? (
     movies.map((movie, index) => <MovieCard key={index} data={movie} />)

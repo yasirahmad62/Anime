@@ -54,14 +54,6 @@ const fetchNewMovies = async (page) => {
   return response.data;
 };
 
-export const fetchAsyncMovieOrShowDetail = createAsyncThunk(
-  "movies/fetchAsyncMovieOrShowDetail",
-  async (id) => {
-    const response = await movieApi.get(`?apiKey=${APIKey}&i=${id}&Plot=full`);
-    return response.data;
-  }
-);
-
 const initialState = {
   movies: [],
   movieQuery: null,
@@ -107,13 +99,12 @@ const movieSlice = createSlice({
 });
 
 export const {
-  removeSelectedMovieOrShow,
   incrementPageNumber,
   fetchMoviesWithPage,
   setmovieQuery,
 } = movieSlice.actions;
 export const getAllMovies = (state) => state.movies.movies;
-export const getSelectedMovieOrShow = (state) => state.movies.selectMovieOrShow;
+
 export const getPageNumber = (state) => state.movies.page_number;
 export const getNewMovies = (state) => fetchAsyncMovies;
 export default movieSlice.reducer;
