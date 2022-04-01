@@ -16,7 +16,6 @@ const MovieListing = () => {
   const new_state = store.getState();
   useEffect(() => {
     dispatch(fetchAsyncMovies({ page: new_state.movies.page_number }));
-    // dispatch(fetchAsyncShows());
   }, [dispatch]);
 
   const movies = useSelector(getAllMovies);
@@ -41,7 +40,6 @@ const MovieListing = () => {
   };
 
   let renderMovies,
-    renderShows = "";
 
   renderMovies = movies ? (
     movies.map((movie, index) => <MovieCard key={index} data={movie} />)
