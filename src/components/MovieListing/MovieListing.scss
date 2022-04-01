@@ -1,0 +1,41 @@
+@import "../../common/colors.scss";
+
+.movie-list{
+  margin: 120px 0px;
+  h2 {
+    color: $font-secondary;
+    margin-bottom: 10px;
+    font-weight: 400;
+    font-size: 2px;
+  }
+}
+
+.movie-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 15px;
+  margin-left: 60px;
+}
+.movie-wrapper{
+  margin-top: 120px;
+}
+button {
+  background: none;
+  border: 2px solid;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  position: relative;
+  left: 44%;
+  padding: 1em 2em;
+}
+button {  
+  color: #3898ec;
+  transition: 0.25s;
+  
+  &:hover,
+  &:focus { 
+    border-color: var(--hover);
+    color: #fff;
+  }
+}

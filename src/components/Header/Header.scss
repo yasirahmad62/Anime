@@ -1,0 +1,68 @@
+@import "../../common/colors.scss";
+
+.header {
+  width: 100%;
+  height: 100px;
+  // background-color: $secondary-color;
+  background-color: rgba(56, 152, 236, .9);
+  
+  
+  padding: 0px 20px;
+  position: relative;
+  top: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+
+}
+.searchTerm {
+  
+  width: 50%;
+  border:1px solid #fff;
+  border-right: none;
+  background: transparent;
+  padding: 5px;
+  color: #fff;
+  height: 50px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  
+}
+
+.searchTerm:focus{
+  color: #fff;
+}
+.search {
+  width: 100%;
+  position: relative;
+  left: 20%;
+  display: flex;
+}
+::placeholder{
+  color: rgba(256, 256, 256, .7);
+}
+.searchButton {
+  width: 80px;
+  height:50px;
+  border: 1px solid #fff;
+  background: transparent;
+  text-align: center;
+  border-left: none;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+.logo {
+  color: $font-primary;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.user-image,
+.user-image img {
+  width: 38px;
+  height: 38px;
+}
