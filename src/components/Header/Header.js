@@ -47,6 +47,11 @@ const Header = () => {
           value="Go"
         />
       </div>
+      <div className="para-div">
+        <p className="paragraph">
+          https://api.jikan.moe/v3/search/anime?q={searchText}
+        </p>
+      </div>
     </div>
   );
 };

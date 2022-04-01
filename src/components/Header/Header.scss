@@ -37,7 +37,7 @@
 .search {
   width: 100%;
   position: relative;
-  left: 20%;
+  left: 25%;
   display: flex;
 }
 ::placeholder{
@@ -65,4 +65,11 @@
 .user-image img {
   width: 38px;
   height: 38px;
+}
+.paragraph{
+  display: inline-block;
+  color: rgba(256, 256, 256, .7); 
+}
+.para-div{
+  display: inline-block;
 }

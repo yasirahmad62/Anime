@@ -16,10 +16,7 @@ export const fetchAsyncMovies = createAsyncThunk(
       (urlData.query ? urlData.query : "<query>") +
       `&limit=16&page=${urlData.page}`;
     console.log(movie_url);
-    const response = await movieApi.get(
-      // `/v3/search/anime?${query ? 'q='+query : ''}&limit=16&page=${page}`
-      movie_url
-    );
+    const response = await movieApi.get(movie_url);
     return response.data;
   }
 );
