@@ -31,11 +31,12 @@ const MovieListing = () => {
     dispatch(
       fetchAsyncMovies({
         page: new_state.movies.page_number + 1,
-        query: new_state.movies.movieQuery.payload,
+        query: new_state.movies.movieQuery
+          ? new_state.movies.movieQuery.payload
+          : null,
       })
     );
   };
-
   let renderMovies;
 
   renderMovies = movies ? (
