@@ -9,7 +9,6 @@ export const fetchAsyncMovies = createAsyncThunk(
       (urlData.query ? urlData.query : "<query>") +
       `&limit=16&page=${urlData.page}`;
     console.log(movie_url);
-    console.log(urlData.page);
     const response = await movieApi.get(movie_url);
     return response.data;
   }
@@ -54,6 +53,9 @@ const movieSlice = createSlice({
     incrementPageNumber: (state) => {
       state.page_number += 1;
     },
+    resetPageNumber: (state) => {
+      state.page_number = 1;
+    },
     setmovieQuery: (state, query) => {
       return { ...state, movieQuery: query };
     },
@@ -88,6 +90,7 @@ const movieSlice = createSlice({
 export const {
   incrementPageNumber,
   fetchMoviesWithPage,
+  resetPageNumber,
   setmovieQuery,
 } = movieSlice.actions;
 export const getAllMovies = (state) => state.movies.movies;

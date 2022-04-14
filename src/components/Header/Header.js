@@ -6,6 +6,7 @@ import {
   getPageNumber,
   incrementPageNumber,
   getNewMovies,
+  resetPageNumber,
   fetchMoviesWithPage,
 } from "../../features/movies/movieSlice";
 import { store } from "../../features/store";
@@ -21,7 +22,8 @@ const Header = () => {
 
   const searchMovie = (event) => {
     event.preventDefault();
-
+    dispatch(resetPageNumber());
+    // console.log(searchText)
     dispatch(setmovieQuery(searchText));
     dispatch(fetchAsyncMoviesBySearch({ page: 1, query: searchText }));
   };
