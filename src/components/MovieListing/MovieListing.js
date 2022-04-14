@@ -11,6 +11,7 @@ import {
 import { store } from "../../features/store";
 import MovieCard from "../MovieCard/MovieCard";
 import "./MovieListing.scss";
+
 const MovieListing = () => {
   const dispatch = useDispatch();
   const new_state = store.getState();
@@ -19,9 +20,9 @@ const MovieListing = () => {
   }, [dispatch]);
 
   const movies = useSelector(getAllMovies);
-  console.log(movies);
+  // console.log(movies);
   movies.map((movie, index) => {
-    console.log(movie);
+    // console.log(movie);
   });
   const page_number = useSelector(getPageNumber);
   // const dispatch = useDispatch();
@@ -38,7 +39,6 @@ const MovieListing = () => {
     );
   };
   let renderMovies;
-
   renderMovies = movies ? (
     movies.map((movie, index) => <MovieCard key={index} data={movie} />)
   ) : (

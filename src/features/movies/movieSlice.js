@@ -4,17 +4,12 @@ import movieApi from "../../common/apis/movieApi";
 export const fetchAsyncMovies = createAsyncThunk(
   "movies/fetchAsyncMovies",
   async (urlData) => {
-    console.log(urlData.page);
-    console.log(urlData.query);
-    console.log("query text 11--> ", urlData.query);
-    console.log("FF");
-    console.log(urlData);
-    console.log(urlData.page, "TTTTT");
     const movie_url =
       `/v3/search/anime?q=` +
       (urlData.query ? urlData.query : "<query>") +
       `&limit=16&page=${urlData.page}`;
     console.log(movie_url);
+    console.log(urlData.page);
     const response = await movieApi.get(movie_url);
     return response.data;
   }
@@ -23,9 +18,6 @@ export const fetchAsyncMovies = createAsyncThunk(
 export const fetchAsyncMoviesBySearch = createAsyncThunk(
   "movies/fetchAsyncMoviesBySearch",
   async (urlData) => {
-    console.log(urlData.page);
-    console.log(urlData.query);
-    console.log("query text --> ", urlData.query);
     console.log(urlData.page, "TTTTT");
     const movie_url =
       `/v3/search/anime?q=` +

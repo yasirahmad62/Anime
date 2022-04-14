@@ -20,12 +20,8 @@ const Header = () => {
   const [searchText, setSearchText] = useState("");
 
   const searchMovie = (event) => {
-    console.log("5555");
-    console.log(new_state.movies.movieQuery);
     event.preventDefault();
-    console.log(searchText);
-    console.log("Searching...");
-    // console.log(searchText)
+
     dispatch(setmovieQuery(searchText));
     dispatch(fetchAsyncMoviesBySearch({ page: 1, query: searchText }));
   };
@@ -49,7 +45,8 @@ const Header = () => {
       </div>
       <div className="para-div">
         <p className="paragraph">
-          <span className='para-span'>Requesting: </span>https://api.jikan.moe/v3/search/anime?q={searchText}
+          <span className="para-span">Requesting: </span>
+          https://api.jikan.moe/v3/search/anime?q={searchText}
         </p>
       </div>
     </div>
