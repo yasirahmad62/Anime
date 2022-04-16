@@ -35,6 +35,7 @@ const MovieListing = () => {
         query: new_state.movies.movieQuery
           ? new_state.movies.movieQuery.payload
           : null,
+        pageNum: new_state.movies.pageLimit,
       })
     );
   };

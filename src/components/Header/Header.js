@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from "react";
 import {
   fetchAsyncMoviesBySearch,
-  getAllMovies,
   setmovieQuery,
-  getPageNumber,
-  incrementPageNumber,
-  getNewMovies,
+  setMoviewPageLimit,
   resetPageNumber,
-  fetchMoviesWithPage,
 } from "../../features/movies/movieSlice";
 import { store } from "../../features/store";
 import { Link } from "react-router-dom";
@@ -19,13 +15,20 @@ const Header = () => {
   const new_state = store.getState();
 
   const [searchText, setSearchText] = useState("");
+  const [searchPage, setPage] = useState("");
 
   const searchMovie = (event) => {
     event.preventDefault();
     dispatch(resetPageNumber());
-    // console.log(searchText)
     dispatch(setmovieQuery(searchText));
-    dispatch(fetchAsyncMoviesBySearch({ page: 1, query: searchText }));
+    dispatch(setMoviewPageLimit(searchPage));
+    dispatch(
+      fetchAsyncMoviesBySearch({
+        page: 1,
+        query: searchText,
+        pageNum: searchPage,
+      })
+    );
   };
 
   return (
@@ -44,6 +47,13 @@ const Header = () => {
           onClick={searchMovie}
           value="Go"
         />
+        <select id="dropdown" onChange={(e) => setPage(e.target.value)}>
+          <option value="N/A">Select page limit</option>
+          <option value="4">4</option>
+          <option value="8">8</option>
+          <option value="16">16</option>
+          <option value="32">32</option>
+        </select>
       </div>
       <div className="para-div">
         <p className="paragraph">

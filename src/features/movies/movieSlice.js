@@ -7,8 +7,10 @@ export const fetchAsyncMovies = createAsyncThunk(
     const movie_url =
       `/v3/search/anime?q=` +
       (urlData.query ? urlData.query : "<query>") +
-      `&limit=16&page=${urlData.page}`;
+      `&limit=${urlData.pageNum ? urlData.pageNum : "16"}&page=${urlData.page}`;
     console.log(movie_url);
+
+    console.log(urlData);
     const response = await movieApi.get(movie_url);
     return response.data;
   }
@@ -17,11 +19,11 @@ export const fetchAsyncMovies = createAsyncThunk(
 export const fetchAsyncMoviesBySearch = createAsyncThunk(
   "movies/fetchAsyncMoviesBySearch",
   async (urlData) => {
-    console.log(urlData.page, "TTTTT");
+    console.log(urlData, "TTTTT");
     const movie_url =
       `/v3/search/anime?q=` +
       (urlData.query ? urlData.query : "<query>") +
-      `&limit=16&page=${urlData.page}`;
+      `&limit=${urlData.pageNum ? urlData.pageNum : "16"}&page=${urlData.page}`;
     console.log(movie_url);
     const response = await movieApi.get(
       // `/v3/search/anime?${query ? 'q='+query : ''}&limit=16&page=${page}`
@@ -39,11 +41,11 @@ const fetchNewMovies = async (page) => {
   console.log("pg -> ", initialState.page_number);
   return response.data;
 };
-
 const initialState = {
   movies: [],
   movieQuery: null,
   page_number: 1,
+  pageLimit: "",
 };
 
 const movieSlice = createSlice({
@@ -58,6 +60,9 @@ const movieSlice = createSlice({
     },
     setmovieQuery: (state, query) => {
       return { ...state, movieQuery: query };
+    },
+    setMoviewPageLimit: (state, pageNum) => {
+      return { ...state, pageLimit: pageNum };
     },
     fetchMoviesWithPage: (state) => {
       console.log();
@@ -92,6 +97,7 @@ export const {
   fetchMoviesWithPage,
   resetPageNumber,
   setmovieQuery,
+  setMoviewPageLimit,
 } = movieSlice.actions;
 export const getAllMovies = (state) => state.movies.movies;
 
