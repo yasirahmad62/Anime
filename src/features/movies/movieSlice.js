@@ -10,8 +10,9 @@ export const fetchAsyncMovies = createAsyncThunk(
       `&limit=${urlData.pageNum ? urlData.pageNum : "16"}&page=${urlData.page}`;
     console.log(movie_url);
 
-    console.log(urlData);
+    console.log(urlData.pageNum);
     const response = await movieApi.get(movie_url);
+    console.log(response.data);
     return response.data;
   }
 );
@@ -45,7 +46,7 @@ const initialState = {
   movies: [],
   movieQuery: null,
   page_number: 1,
-  pageLimit: "",
+  pageLimit: null,
 };
 
 const movieSlice = createSlice({
